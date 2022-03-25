@@ -42,3 +42,8 @@ variable "aktivitetskode" {
   description = "A prefix used for naming resources."
   type        = string
 }
+
+variable "api_gateway_id" {
+  description = "A prefix used for naming resources."
+  type        = string
+}
