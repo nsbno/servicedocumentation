@@ -11,7 +11,7 @@ resource "aws_s3_bucket_object" "delegated_service_documentation" {
   # OR
   swagger_file = "toberemoved"
 
-  about_file = var.about_file
+  about_file = "toberemoved"
   owner = var.owner 
   technicalowner = var.technicalowner
   servicesla = var.servicesla 
@@ -21,3 +21,4 @@ resource "aws_s3_bucket_object" "delegated_service_documentation" {
   })
   content_type = "application/json"
 }
+
