@@ -22,14 +22,10 @@ resource "aws_s3_bucket_object" "delegated_service_documentation" {
   content_type = "application/json"
 }
 
-module "api_gateway_export" {
-    source          = "rojopolis/api-gateway-export-aws"
-    api_gateway_id  = var.api_gateway_id
-    stage_name      = "prod"
-    region          = "eu-west-1"
-    extensions      = "postman"
-    format          = "json"
-    openapi_version = "oas30"
+data "aws_api_gateway_export" "service" {
+  rest_api_id = var.api_gateway_id
+  stage_name  = "prod"
+  export_type = "oas30"
 }
 
 resource "aws_s3_bucket_object" "openapi_documentation" {
@@ -38,7 +34,7 @@ resource "aws_s3_bucket_object" "openapi_documentation" {
   acl    = "bucket-owner-full-control"
   # local.service_documentation_bucket
   content = jsonencode({
-  content = module.api_gateway_export.api_export
+  content = aws_api_gateway_export.service.body
 
   })
   content_type = "application/json"
