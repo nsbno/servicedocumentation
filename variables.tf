@@ -3,6 +3,11 @@ variable "name_prefix" {
   type        = string
 }
 
+variable "env" {
+  description = "A prefix used for naming resources."
+  type        = string
+}
+
 variable "current_account_id" {
   description = "A prefix used for naming resources."
   type        = string
