@@ -34,7 +34,7 @@ resource "aws_s3_bucket_object" "openapi_documentation" {
   acl    = "bucket-owner-full-control"
   # local.service_documentation_bucket
   content = jsonencode({
-  content = aws_api_gateway_export.service.body
+  content = data.aws_api_gateway_export.service.body
 
   })
   content_type = "application/json"
