@@ -33,10 +33,7 @@ resource "aws_s3_object" "openapi_documentation" {
   key    = "${var.env}/${var.current_account_id}/${var.name_prefix}-openapi.json"
   acl    = "bucket-owner-full-control"
   # local.service_documentation_bucket
-  content = jsonencode({
   content = data.aws_api_gateway_export.service.body
-
-  })
   content_type = "application/json"
 }
 
