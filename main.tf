@@ -28,7 +28,7 @@ data "aws_api_gateway_export" "service" {
   export_type = "oas30"
 }
 
-resource "aws_s3_bucket_object" "openapi_documentation" {
+resource "aws_s3_object" "openapi_documentation" {
   bucket = "061938725231-infrademo-delegated-service-documentation"
   key    = "${var.current_account_id}/${var.name_prefix}.json"
   acl    = "bucket-owner-full-control"
