@@ -30,7 +30,7 @@ data "aws_api_gateway_export" "service" {
 
 resource "aws_s3_object" "openapi_documentation" {
   bucket = "061938725231-infrademo-delegated-service-documentation"
-  key    = "${var.current_account_id}/${var.name_prefix}.json"
+  key    = "${var.env}/${var.current_account_id}/${var.name_prefix}-openapi.json"
   acl    = "bucket-owner-full-control"
   # local.service_documentation_bucket
   content = jsonencode({
