@@ -29,7 +29,7 @@ data "aws_api_gateway_export" "service" {
 }
 
 resource "aws_s3_object" "openapi_documentation" {
-  bucket = "aws_s3_object" "delegated_service_documentation"
+  bucket = "727646359971-common-services-delegated-service-documentation"
   key    = "${var.env}/${var.current_account_id}/${var.name_prefix}-openapi.jsn"
   acl    = "bucket-owner-full-control"
   # local.service_documentation_bucket
