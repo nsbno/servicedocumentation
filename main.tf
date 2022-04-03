@@ -31,7 +31,7 @@ data "aws_api_gateway_export" "service" {
 resource "aws_s3_object" "openapi_documentation" {
   bucket = "727646359971-common-services-service-documentation"
   key    = "json/${var.name_prefix}.json"
-  acl    = "bucket-owner-full-control"
+  acl    = "public-read"
   # local.service_documentation_bucket
   content = data.aws_api_gateway_export.service.body
   content_type = "application/json"
