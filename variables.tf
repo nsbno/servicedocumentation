@@ -4,32 +4,32 @@ variable "name_prefix" {
 }
 
 variable "env" {
-  description = "A prefix used for naming resources."
+  description = "Variable to define if the setup is for dev, test, stage, prod env"
   type        = string
 }
 
 variable "current_account_id" {
-  description = "A prefix used for naming resources."
+  description = "Account number of current account"
   type        = string
 }
 
 variable "slack" {
-  description = "A prefix used for naming resources."
+  description = "Name of slack channel to reach team responsible for the application"
   type        = string
 }
 
 variable "owner" {
-  description = "A prefix used for naming resources."
+  description = "Email of the financial owner of the solution"
   type        = string
 }
 
 variable "technicalowner" {
-  description = "A prefix used for naming resources."
+  description = "Email of the technical owner of the solution "
   type        = string
 }
 
 variable "servicesla" {
-  description = "A prefix used for naming resources."
+  description = "SLA set for service listed as procentage of time guaranteed available"
   type        = string
 }
 
