@@ -1,25 +1,36 @@
-resource "aws_s3_object" "delegated_service_documentation" {
+terraform {
+  required_version = ">= 1.0.0"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 3.74.0, < 4.0.0"
+    }
+  }
+}
+
+resource "aws_s3_bucket_object" "delegated_service_documentation" {
   bucket = "727646359971-common-services-delegated-service-documentation"
   key    = "${var.env}/${var.current_account_id}/${var.name_prefix}.json"
   acl    = "bucket-owner-full-control"
-  # local.service_documentation_bucket
-  content = jsonencode({
-  applicationname = var.name_prefix
-  slack = var.slack 
 
-  api_gateway_arn = "toberemoved"
-  # OR
-  swagger_file = "toberemoved"
+  content_type = "application/json"
+  content      = jsonencode({
+    applicationname = var.name_prefix
+    slack           = var.slack
 
-  about_file = "toberemoved"
-  owner = var.owner 
-  technicalowner = var.technicalowner
-  servicesla = var.servicesla 
-  growthmetric = var.growthmetric 
-  aktivitetskode = var.aktivitetskode 
+    api_gateway_arn = "toberemoved"
+    # OR
+    swagger_file    = "toberemoved"
+
+    about_file     = "toberemoved"
+    owner          = var.owner
+    technicalowner = var.technicalowner
+    servicesla     = var.servicesla
+    growthmetric   = var.growthmetric
+    aktivitetskode = var.aktivitetskode
 
   })
-  content_type = "application/json"
 }
 
 data "aws_api_gateway_export" "service" {
@@ -28,12 +39,12 @@ data "aws_api_gateway_export" "service" {
   export_type = "swagger"
 }
 
-resource "aws_s3_object" "openapi_documentation" {
+resource "aws_s3_bucket_object" "openapi_documentation" {
   bucket = "727646359971-common-services-service-documentation"
   key    = "json/${var.name_prefix}.json"
   acl    = "public-read"
-  # local.service_documentation_bucket
-  content = data.aws_api_gateway_export.service.body
+
   content_type = "application/json"
+  content      = data.aws_api_gateway_export.service.body
 }
 
