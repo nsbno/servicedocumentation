@@ -47,3 +47,11 @@ variable "api_gateway_id" {
   description = "A prefix used for naming resources."
   type        = string
 }
+
+variable "api_gateway_stage_name" {
+  description = "The name of your stage"
+  type        = string
+
+  # This is what most teams have in their configuration.
+  default = "v1"
+}

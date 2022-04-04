@@ -35,7 +35,7 @@ resource "aws_s3_bucket_object" "delegated_service_documentation" {
 
 data "aws_api_gateway_export" "service" {
   rest_api_id = var.api_gateway_id
-  stage_name  = "prod"
+  stage_name  = var.api_gateway_stage_name
   export_type = "swagger"
 }
 
