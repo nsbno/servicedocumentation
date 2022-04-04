@@ -16,7 +16,7 @@ resource "aws_s3_bucket_object" "delegated_service_documentation" {
 
   content_type = "application/json"
   content      = jsonencode({
-    applicationname = var.name_prefix
+    applicationname = var.application_name
     slack           = var.slack
 
     api_gateway_arn = "toberemoved"
