@@ -5,12 +5,10 @@ with service information if added to application snippet.
 
 Example code
 
-
-
 ```terraform
 module "servicedoc" {
-  source                      = "github.com/nsbno/servicedocumentation?ref=5da4430"  
-  name_prefix                 = local.name_prefix
+  source                      = "github.com/nsbno/servicedocumentation?ref=x.y.z"
+  application_name            = local.application_name
   env                         = local.environment
   current_account_id          = data.aws_caller_identity.this.account_id
   slack                       = "#slackchannel"

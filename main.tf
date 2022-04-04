@@ -11,12 +11,12 @@ terraform {
 
 resource "aws_s3_bucket_object" "delegated_service_documentation" {
   bucket = "727646359971-common-services-delegated-service-documentation"
-  key    = "${var.env}/${var.current_account_id}/${var.name_prefix}.json"
+  key    = "${var.env}/${var.current_account_id}/${var.application_name}.json"
   acl    = "bucket-owner-full-control"
 
   content_type = "application/json"
   content      = jsonencode({
-    applicationname = var.name_prefix
+    applicationname = var.application_name
     slack           = var.slack
 
     api_gateway_arn = "toberemoved"

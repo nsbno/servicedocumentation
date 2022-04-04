@@ -1,5 +1,5 @@
-variable "name_prefix" {
-  description = "A prefix used for naming resources."
+variable "application_name" {
+  description = "The name of this application"
   type        = string
 }
 
