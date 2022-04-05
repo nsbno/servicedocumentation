@@ -11,7 +11,7 @@ terraform {
 
 resource "aws_s3_bucket_object" "delegated_service_documentation" {
   bucket = "727646359971-common-services-delegated-service-documentation"
-  key    = "${var.env}/${var.current_account_id}/${var.name_prefix}.json"
+  key    = "${var.env}/${var.current_account_id}/${var.application_name}.json"
   acl    = "bucket-owner-full-control"
 
   content_type = "application/json"
@@ -41,7 +41,7 @@ data "aws_api_gateway_export" "service" {
 
 resource "aws_s3_bucket_object" "openapi_documentation" {
   bucket = "727646359971-common-services-service-documentation"
-  key    = "json/${var.name_prefix}.json"
+  key    = "json/${var.application_name}.json"
   acl    = "public-read"
 
   content_type = "application/json"
