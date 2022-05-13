@@ -24,7 +24,7 @@ module "servicedoc" {
   application_name   = local.application_name
   env                = local.environment
 
-  api_gateway_id = "abcde31kh5"
+  api_gateway_id = module.api_gateway.rest_api_id
 
   slack          = "#slackchannel"
   owner          = "budgetowner@vy.no"
