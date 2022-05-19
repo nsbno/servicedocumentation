@@ -15,6 +15,9 @@ This module will update link:https://developer.common-services.vydev.io/[the API
 
 To use this module, just add it to your application terraform!
 
+For access credentials to the site:
+link:https://github.com/nsbno/developer-portal/blob/master/README.adoc
+
 [source,hcl]
 ----
 module "servicedoc" {
