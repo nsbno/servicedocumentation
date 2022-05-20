@@ -10,7 +10,7 @@ terraform {
 }
 
 resource "aws_s3_bucket_object" "delegated_service_documentation_prod" {
-  count = "${var.env = "prod" ? 1 : 0}"
+  count = "${var.env == "prod" ? 1 : 0}"
   bucket = "727646359971-common-services-delegated-service-documentation"
   key    = "${var.env}/${var.current_account_id}/${var.application_name}.json"
   acl    = "bucket-owner-full-control"
