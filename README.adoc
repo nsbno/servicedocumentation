@@ -9,7 +9,7 @@ toc::[]
 
 == About
 
-This module will update link:https://developer.common-services.vydev.io/[the API overview page], and link:https://vygruppen.atlassian.net/wiki/spaces/INFRA/pages/6379864114/Service+Overview[the service overview page] based on the supplied information.
+This module will update link:https://developer.portal.vydev.io/[the API overview page], and link:https://vygruppen.atlassian.net/wiki/spaces/INFRA/pages/6379864114/Service+Overview[the service overview page] based on the supplied information.
 
 == Usage
 
