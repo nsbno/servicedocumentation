@@ -18,23 +18,37 @@ To use this module, just add it to your application terraform!
 For access credentials to the site:
 link:https://github.com/nsbno/developer-portal/blob/master/README.adoc
 
+=== Setup with CircleCI orb
+----
+module "service_documentation" {
+  source                      = "github.com/nsbno/servicedocumentation//modules/plain-servicedoc"
+  application_name            = "${local.name_prefix}-${local.application_name}"
+  env                         = local.environment
+  current_account_id          = data.aws_caller_identity.this.account_id
+  slack                       = "#team-kanalname"
+  owner                       = "budgetowner@vy.no"
+  technicalowner              = "tekniskowner@vy.no"
+  servicesla                  = "99.7"
+  growthmetric                = "transaction count"
+  aktivitetskode              = "123456"
+}
+----
+
+=== Setup without CircleCI orb
 [source,hcl]
 ----
-module "servicedoc" {
-  source = "github.com/nsbno/servicedocumentation?ref=x.y.z"
-
-  current_account_id = data.aws_caller_identity.this.account_id
-  application_name   = local.application_name
-  env                = local.environment
-
-  api_gateway_id = module.api_gateway.rest_api_id
-
-  slack          = "#slackchannel"
-  owner          = "budgetowner@vy.no"
-  technicalowner = "tekniskowner@vy.no"
-  servicesla     = "99.7"
-  growthmetric   = "transaction count"
-  aktivitetskode = "12345"
+module "service_documentation" {
+  source                      = "github.com/nsbno/servicedocumentation//modules/api-gateway"
+  name_prefix                 = local.name_prefix
+  env                         = local.environment
+  current_account_id          = data.aws_caller_identity.this.account_id
+  slack                       = "#team-kanalname"
+  owner                       = "budgetowner@vy.no"
+  technicalowner              = "tekniskowner@vy.no"
+  servicesla                  = "99.7"
+  growthmetric                = "transaction count"
+  aktivitetskode              = "123456"
+  api_gateway_id              = module.api_gateway.rest_api_id
 }
 ----
 
