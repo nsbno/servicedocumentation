@@ -34,7 +34,7 @@ module "service_documentation" {
 }
 ----
 
-Using CircleCI org approach is recommended as this would autoupdate openapi files through pipeline upon changes
+Using CircleCI orb approach is recommended as this would autoupdate openapi files through pipeline upon application changes
 
 === Setup without CircleCI orb
 [source,hcl]
