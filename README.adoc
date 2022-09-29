@@ -34,6 +34,8 @@ module "service_documentation" {
 }
 ----
 
+Using CircleCI org approach is recommended as this would autoupdate openapi files through pipeline upon changes
+
 === Setup without CircleCI orb
 [source,hcl]
 ----
@@ -51,6 +53,8 @@ module "service_documentation" {
   api_gateway_id              = module.api_gateway.rest_api_id
 }
 ----
+
+This apporach do not auto update openapi files unless an attribute value for the module is updated
 
 == Architecture
 
