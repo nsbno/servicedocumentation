@@ -16,7 +16,7 @@ This module will update link:https://developer.portal.vydev.io/[the API overview
 To use this module, just add it to your application terraform!
 
 For access credentials to the site and backend setup: 
-link:https://github.com/nsbno/developer-portal/blob/master/README.adoc [developer-portal] 
+link:https://github.com/nsbno/developer-portal/blob/master/README.adoc[developer-portal] 
 
 === Setup with CircleCI orb
 ----
