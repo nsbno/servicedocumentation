@@ -1,3 +1,7 @@
+= Deprecated
+
+Use link:https://github.com/nsbno/circleci-orb-service-documentation[the circleci-orb-service-documentation] instead.
+
 = servicedocumentation
 :!toc-title:
 :!toc-placement:
